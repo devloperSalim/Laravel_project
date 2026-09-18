@@ -25,6 +25,7 @@ return new class extends Migration
                 'technician',
                 'client'
             ])->default('client');
+            $table->string('specialty')->nullable();
 
             $table->rememberToken();
             $table->timestamps();
