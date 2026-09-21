@@ -13,6 +13,38 @@ return new class extends Migration
     {
         Schema::create('service_requests', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('client_id')
+                ->constrained('users')
+                ->cascadeOnDelete();
+
+            $table->foreignId('service_category_id')
+                ->constrained('service_categories')
+                ->restrictOnDelete();
+
+            $table->string('title');
+            $table->text('description');
+
+            $table->string('address');
+            $table->string('city');
+
+            $table->enum('priority', [
+                'low',
+                'medium',
+                'high',
+                'urgent'
+            ])->default('medium');
+
+            $table->enum('status', [
+                'pending',
+                'assigned',
+                'in_progress',
+                'completed',
+                'cancelled'
+            ])->default('pending');
+
+            $table->timestamp('preferred_date')->nullable();
+
             $table->timestamps();
         });
     }
