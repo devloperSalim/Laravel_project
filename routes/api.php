@@ -10,3 +10,12 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/service-requests', [ServiceRequestController::class, 'index']);
 Route::get('/service-requests/{serviceRequest}', [ServiceRequestController::class, 'show']);
+Route::post(
+    '/service-requests',
+    [ServiceRequestController::class, 'store']
+);
+
+Route::put(
+    '/service-requests/{serviceRequest}',
+    [ServiceRequestController::class, 'update']
+);
