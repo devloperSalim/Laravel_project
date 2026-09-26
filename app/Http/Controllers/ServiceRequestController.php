@@ -75,4 +75,14 @@ class ServiceRequestController extends Controller
         'data' => $serviceRequest,
     ]);
 }
+
+    public function destroy(ServiceRequest $serviceRequest): JsonResponse
+{
+    $serviceRequest->delete();
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Service request deleted successfully.',
+    ]);
+}
 }

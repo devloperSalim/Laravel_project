@@ -19,3 +19,7 @@ Route::put(
     '/service-requests/{serviceRequest}',
     [ServiceRequestController::class, 'update']
 );
+Route::delete(
+    '/service-requests/{serviceRequest}',
+    [ServiceRequestController::class, 'destroy']
+);
