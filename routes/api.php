@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ServiceRequestController;
+use App\Http\Controllers\AssignmentController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -22,4 +23,20 @@ Route::put(
 Route::delete(
     '/service-requests/{serviceRequest}',
     [ServiceRequestController::class, 'destroy']
+);
+
+Route::get('/assignments', [AssignmentController::class, 'index']);
+
+Route::get(
+    '/assignments/{assignment}',
+    [AssignmentController::class, 'show']
+);
+
+Route::post(
+    '/assignments',
+    [AssignmentController::class, 'store']
+);
+Route::put(
+    '/assignments/{assignment}',
+    [AssignmentController::class, 'update']
 );
