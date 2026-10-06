@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\InterventionController;
+use App\Http\Controllers\ServiceRequestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ServiceRequestController;
-use App\Http\Controllers\AssignmentController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -40,3 +41,12 @@ Route::put(
     '/assignments/{assignment}',
     [AssignmentController::class, 'update']
 );
+
+Route::get('/interventions', [InterventionController::class, 'index']);
+Route::get('/interventions/{intervention}', [InterventionController::class, 'show']);
+Route::post('/interventions', [InterventionController::class, 'store']);
+Route::put(
+    '/interventions/{intervention}',
+    [InterventionController::class, 'update']
+);
+Route::delete('/interventions/{intervention}', [InterventionController::class, 'destroy']);
