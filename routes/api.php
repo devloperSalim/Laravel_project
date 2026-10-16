@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\InterventionController;
+use App\Http\Controllers\ServiceReportController;
 use App\Http\Controllers\ServiceRequestController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,4 +50,14 @@ Route::put(
     '/interventions/{intervention}',
     [InterventionController::class, 'update']
 );
-Route::delete('/interventions/{intervention}', [InterventionController::class, 'destroy']);
+Route::get('/service-reports', [ServiceReportController::class, 'index']);
+Route::get('/service-reports/{serviceReport}', [ServiceReportController::class, 'show']);
+Route::post('/service-reports', [ServiceReportController::class, 'store']);
+Route::put(
+    '/service-reports/{serviceReport}',
+    [ServiceReportController::class, 'update']
+);
+Route::delete(
+    '/service-reports/{serviceReport}',
+    [ServiceReportController::class, 'destroy']
+);
