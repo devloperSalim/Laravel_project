@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\InterventionController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ServiceReportController;
@@ -67,3 +68,11 @@ Route::get('/invoices/{invoice}', [InvoiceController::class, 'show']);
 Route::post('/invoices', [InvoiceController::class, 'store']);
 Route::put('/invoices/{invoice}', [InvoiceController::class, 'update']);
 Route::delete('/invoices/{invoice}', [InvoiceController::class, 'destroy']);
+
+Route::get('/attachments', [AttachmentController::class, 'index']);
+Route::get('/attachments/{attachment}', [AttachmentController::class, 'show']);
+Route::post('/attachments', [AttachmentController::class, 'store']);
+Route::delete(
+    '/attachments/{attachment}',
+    [AttachmentController::class, 'destroy']
+);
